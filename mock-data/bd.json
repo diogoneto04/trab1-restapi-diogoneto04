@@ -1,0 +1,39 @@
+{
+  "alunos": [
+    {
+      "id": "1",
+      "nome": "Diogo",
+      "apelido": "Neto",
+      "curso": "Engenharia de Redes",
+      "anoCurricular": 2
+    },
+    {
+      "id": "2",
+      "nome": "Maria",
+      "apelido": "Silva",
+      "curso": "Informática",
+      "anoCurricular": 3
+    },
+    {
+      "nome": "Marco",
+      "apelido": "Andrade",
+      "curso": "Marketing",
+      "anoCurricular": 4,
+      "id": "4626"
+    }
+  ],
+  "cursos": [
+    {
+      "id": "1",
+      "nomeDoCurso": "Engenharia de Redes"
+    },
+    {
+      "id": "2",
+      "nomeDoCurso": "Informática"
+    },
+    {
+      "id": "3",
+      "nomeDoCurso": "Gestão"
+    }
+  ]
+}
