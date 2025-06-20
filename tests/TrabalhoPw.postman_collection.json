@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "de7833a4-b565-4226-8ab6-cff290b56258",
+		"name": "TrabalhoPw",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43977788",
+		"_collection_link": "https://diogo-3850337.postman.co/workspace/Diogo's-Workspace~ecb0d860-8868-402a-8e60-6d0a2fe28903/collection/43977788-de7833a4-b565-4226-8ab6-cff290b56258?action=share&source=collection_link&creator=43977788"
+	},
+	"item": [
+		{
+			"name": "mostraralunos",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "adicionaraluno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"João\",\r\n  \"apelido\": \"Antunes\",\r\n  \"curso\": \"Gestao\",\r\n  \"anoCurricular\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/alunos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"alunos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AlterarAluno",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"João\",\r\n  \"apelido\": \"Antunes\",\r\n  \"curso\": \"Gestao\",\r\n  \"anoCurricular\": 2\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/alunos/d70a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"alunos",
+						"d70a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ApagarAlunos",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"João\",\r\n  \"apelido\": \"Antunes\",\r\n  \"curso\": \"Gestao\",\r\n  \"anoCurricular\": 2\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/alunos/d70a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"alunos",
+						"d70a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
