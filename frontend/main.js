@@ -18,12 +18,14 @@ function carregarAlunos() {
         // Botão Apagar
         const botaoApagar = document.createElement('button');
         botaoApagar.textContent = 'Apagar';
+        botaoApagar.classList.add('btn', 'btn-danger');
         botaoApagar.addEventListener('click', () => apagarAluno(aluno._id));
         li.appendChild(botaoApagar);
 
         // Botão Editar
         const botaoEditar = document.createElement('button');
         botaoEditar.textContent = 'Editar';
+        botaoEditar.classList.add('btn', 'btn-success', 'ms-2');
         botaoEditar.addEventListener('click', () => carregarParaEdicao(aluno));
         li.appendChild(botaoEditar);
 
@@ -63,6 +65,12 @@ form.addEventListener('submit', e => {
     anoCurricular: parseInt(document.getElementById('anoCurricular').value)
   };
 
+  // Validação rápida
+  if (!alunoData.nome || !alunoData.apelido || !alunoData.curso || isNaN(alunoData.anoCurricular)) {
+    alert('Por favor, preencha todos os campos corretamente.');
+    return;
+  }
+
   if (alunoEmEdicao) {
     // Atualizar aluno existente
     fetch(`${apiUrl}/${alunoEmEdicao}`, {
@@ -70,7 +78,8 @@ form.addEventListener('submit', e => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(alunoData)
     })
-      .then(() => {
+      .then(res => {
+        if (!res.ok) throw new Error('Erro ao atualizar aluno.');
         alunoEmEdicao = null;
         form.querySelector('button').textContent = 'Adicionar Aluno';
         form.reset();
@@ -78,6 +87,7 @@ form.addEventListener('submit', e => {
       })
       .catch(erro => {
         console.error('Erro ao editar aluno:', erro);
+        alert('Erro ao editar aluno.');
       });
   } else {
     // Criar novo aluno
@@ -86,12 +96,14 @@ form.addEventListener('submit', e => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(alunoData)
     })
-      .then(() => {
+      .then(res => {
+        if (!res.ok) throw new Error('Erro ao adicionar aluno.');
         form.reset();
         carregarAlunos();
       })
       .catch(erro => {
         console.error('Erro ao adicionar aluno:', erro);
+        alert('Erro ao adicionar aluno.');
       });
   }
 });
