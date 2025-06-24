@@ -1,10 +1,10 @@
 // JS para operações CRUD com Fetch API
-const apiUrl = 'https://trab1-restapi-diogoneto04.onrender.com/alunos'; // Muda para Render mais tarde
+const apiUrl = 'https://trab1-restapi-diogoneto04.onrender.com/alunos';
 
 const lista = document.getElementById('lista-alunos');
 const form = document.getElementById('form-aluno');
 
-let alunoEmEdicao = null; // null = modo adicionar | id = modo edição
+let alunoEmEdicao = null; // null = modo adicionar | _id = modo edição
 
 function carregarAlunos() {
   fetch(apiUrl)
@@ -18,7 +18,7 @@ function carregarAlunos() {
         // Botão Apagar
         const botaoApagar = document.createElement('button');
         botaoApagar.textContent = 'Apagar';
-        botaoApagar.addEventListener('click', () => apagarAluno(aluno.id));
+        botaoApagar.addEventListener('click', () => apagarAluno(aluno._id));
         li.appendChild(botaoApagar);
 
         // Botão Editar
@@ -48,7 +48,7 @@ function carregarParaEdicao(aluno) {
   document.getElementById('apelido').value = aluno.apelido;
   document.getElementById('curso').value = aluno.curso;
   document.getElementById('anoCurricular').value = aluno.anoCurricular;
-  alunoEmEdicao = aluno.id;
+  alunoEmEdicao = aluno._id;
 
   form.querySelector('button').textContent = 'Guardar Alterações';
 }
