@@ -1,40 +1,38 @@
 const Aluno = require('../models/Aluno');
 
 exports.listar = async (req, res) => {
-  try {
-    const alunos = await Aluno.find();
-    res.json(alunos);
-  } catch (err) {
-    res.status(500).json({ mensagem: 'Erro ao listar alunos.', err });
-  }
+  const alunos = await Aluno.find();
+  res.json(alunos);
 };
 
 exports.criar = async (req, res) => {
-  try {
-    const novoAluno = new Aluno(req.body);
-    const guardado = await novoAluno.save();
-    res.status(201).json(guardado);
-  } catch (err) {
-    res.status(400).json({ mensagem: 'Erro ao criar aluno.', err });
-  }
-};
-
-exports.apagar = async (req, res) => {
-  try {
-    const removido = await Aluno.findByIdAndDelete(req.params.id);
-    if (!removido) return res.status(404).json({ mensagem: 'Aluno não encontrado.' });
-    res.json({ mensagem: 'Aluno apagado com sucesso.' });
-  } catch (err) {
-    res.status(500).json({ mensagem: 'Erro ao apagar aluno.', err });
-  }
+  const aluno = new Aluno(req.body);
+  await aluno.save();
+  res.status(201).json(aluno);
 };
 
 exports.atualizar = async (req, res) => {
   try {
-    const atualizado = await Aluno.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!atualizado) return res.status(404).json({ mensagem: 'Aluno não encontrado.' });
-    res.json(atualizado);
-  } catch (err) {
-    res.status(500).json({ mensagem: 'Erro ao atualizar aluno.', err });
+    const aluno = await Aluno.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+
+    if (!aluno) {
+      return res.status(404).json({ mensagem: 'Aluno não encontrado' });
+    }
+
+    res.json(aluno);
+  } catch (erro) {
+    res.status(500).json({ mensagem: 'Erro ao atualizar aluno', erro });
   }
+};
+
+exports.apagar = async (req, res) => {
+  const aluno = await Aluno.findByIdAndDelete(req.params.id);
+  if (!aluno) {
+    return res.status(404).json({ mensagem: 'Aluno não encontrado' });
+  }
+  res.json({ mensagem: 'Aluno apagado com sucesso' });
 };
