@@ -11,10 +11,9 @@ app.use(express.json());
 const alunoRoutes = require('./routes/alunoRoutes');
 app.use('/alunos', alunoRoutes);
 
-const PORT = process.env.PORT || 3001;
-
+// Ligação MongoDB
 mongoose.connect(process.env.MONGODB_URI)
-  .then(() => {
-    app.listen(PORT, () => console.log(`Servidor a correr na porta ${PORT}`));
-  })
-  .catch(err => console.log(err));
+  .then(() => console.log('Ligação à base de dados com sucesso!'))
+  .catch(err => console.log('Erro na ligação à base de dados:', err));
+
+module.exports = app;
