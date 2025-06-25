@@ -16,4 +16,7 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Ligação à base de dados com sucesso!'))
   .catch(err => console.log('Erro na ligação à base de dados:', err));
 
-module.exports = app;
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Servidor a correr na porta ${PORT}`);
+});
