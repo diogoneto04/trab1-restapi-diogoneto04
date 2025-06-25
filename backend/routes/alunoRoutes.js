@@ -2,10 +2,9 @@ const express = require('express');
 const router = express.Router();
 const alunoCtrl = require('../controllers/alunoController');
 
-// Rotas para alunos
-router.get('/', alunoCtrl.listar);           // Listar alunos
-router.post('/', alunoCtrl.criar);           // Criar novo aluno
-router.put('/:id', alunoCtrl.editar);        // Atualizar aluno (corrigido aqui!)
-router.delete('/:id', alunoCtrl.apagar);     // Apagar aluno
+router.get('/', alunoCtrl.listar);
+router.post('/', alunoCtrl.criar);
+router.put('/:id', alunoCtrl.atualizar); // <- aqui tem que ser atualizar
+router.delete('/:id', alunoCtrl.apagar);
 
 module.exports = router;
