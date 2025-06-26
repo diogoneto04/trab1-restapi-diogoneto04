@@ -14,6 +14,42 @@ Consolidar os conhecimentos em desenvolvimento web com foco na criação, consum
 
 O projeto simula o ciclo completo de desenvolvimento de uma aplicação web com front-end e back-end separados, incluindo testes e deploy.
 
+Dados do Aluno
+
+- **Nome:** Diogo Neto  
+- **Número:** 29510  
+- **Curso:** Engenharia de Redes e Sistemas de Computadores  
+- **Unidade Curricular:** Programação Web  
+
+---
+
+##  Deploy do Projeto
+
+| Serviço                 | Link                                                                                                 |
+| ----------------------- | ---------------------------------------------------------------------------------------------------- |
+| **Frontend (Vercel)**   | 🌐 [https://trab1-restapi-diogoneto04.vercel.app](https://trab1-restapi-diogoneto04.vercel.app)     |
+| **Backend (Render)**    | 🌐 [https://trab1-restapi-diogoneto04.onrender.com/alunos](https://trab1-restapi-diogoneto04.onrender.com/alunos) |
+| **Documentação Swagger**| 📑 [https://trab1-restapi-diogoneto04.onrender.com/api-docs](https://trab1-restapi-diogoneto04.onrender.com/api-docs) |
+
+
+## Organização do Projeto
+
+```plaintext
+projeto-raiz/
+│
+├── /frontend/        ← Interface web (HTML/CSS/JS)
+├── /backend/         ← API RESTful com Node.js + MongoDB Atlas
+│   ├── /models/      ← Modelos da base de dados (Mongoose)
+│   ├── /routes/      ← Rotas da API
+│   ├── /controllers/ ← Lógica dos endpoints
+│   ├── /docs/        ← Documentação Swagger (Parte 6 - Bonificação)
+│   └── app.js        ← Arquivo principal do backend
+├── /mock-server/     ← API simulada com JSON-Server
+├── /mock-data/       ← Base de dados JSON original (bd.json)
+├── /tests/           ← Coleção de testes Postman
+├── README.md         ← Instruções, links e documentação
+└── .gitignore, etc.
+
 ---
 
 ## Partes do Trabalho
@@ -93,21 +129,7 @@ O projeto simula o ciclo completo de desenvolvimento de uma aplicação web com 
 
 ---
 
-## Organização do Projeto
 
-```text
-projeto-raiz/
-│
-├── /frontend/ ← Interface web (HTML/CSS/JS)
-├── /backend/ ← API RESTful com Node.js + MongoDB
-├── /mock-server/ ← JSON-server configurado
-├── /mock-data/ ← Base de dados JSON original
-├── /tests/ ← Coleção de testes Postman
-├── README.md ← Instruções, links e notas
-└── .gitignore, etc.
-```
-
----
 
 ## Sugestão de Branches
 
@@ -144,10 +166,3 @@ projeto-raiz/
   - README.md com instruções claras
   - Links de deploy (front e opcionalmente back)
 
----
-
-### Repositório Base
-
-Usa o repositório template inicial fornecido no GitHub Classroom.
-# TWT1RESTAPI
-# TRAB1_TEMPLATE
