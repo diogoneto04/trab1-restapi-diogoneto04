@@ -1,3 +1,4 @@
+const swaggerDocs = require('./docs/swagger');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -10,6 +11,9 @@ app.use(express.json());
 // Importar rotas
 const alunoRoutes = require('./routes/alunoRoutes');
 app.use('/alunos', alunoRoutes);
+
+// Swagger (vem depois das rotas para documentar)
+swaggerDocs(app);
 
 // Ligação MongoDB
 mongoose.connect(process.env.MONGODB_URI)
