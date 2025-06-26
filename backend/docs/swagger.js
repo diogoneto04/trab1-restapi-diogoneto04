@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: 'https://trab1-restapi-diogoneto04.onrender.com/alunos/', // ✅ URL da tua API no Render
+        url: 'https://trab1-restapi-diogoneto04.onrender.com', // ✅ URL da tua API no Render
       },
     ],
   },
